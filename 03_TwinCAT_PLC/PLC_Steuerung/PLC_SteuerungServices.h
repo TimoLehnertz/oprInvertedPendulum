@@ -186,14 +186,16 @@ typedef struct _S_EL4132_Output_Prozessabbild
 } S_EL4132_Output_Prozessabbild, *PS_EL4132_Output_Prozessabbild;
 #endif // !defined(_TC_TYPE_0612D231_FCCB_4A1E_92B1_B91B8C849151_INCLUDED_)
 
-#if !defined(_TC_TYPE_37F2006B_CA63_41BD_8992_0266C6115244_INCLUDED_)
-#define _TC_TYPE_37F2006B_CA63_41BD_8992_0266C6115244_INCLUDED_
+#if !defined(_TC_TYPE_4703663A_9D2B_4D28_B3ED_98C2D00A89CC_INCLUDED_)
+#define _TC_TYPE_4703663A_9D2B_4D28_B3ED_98C2D00A89CC_INCLUDED_
 #pragma pack(push,1)
 typedef struct _S_EL5151_Input_Prozessabbild
 {
 	USHORT ENC_Status;
-	LONG ENC_CounterValue;
-	LONG ENC_LatchValue;
+	USHORT ENC_CounterValue;
+	unsigned char reserved1[2];
+	USHORT ENC_LatchValue;
+	unsigned char reserved2[2];
 	LONG ENC2_PeriodValue;
 	ULONGLONG ENC3_Timestamp;
 	bool WcState;
@@ -202,7 +204,7 @@ typedef struct _S_EL5151_Input_Prozessabbild
 	AmsAddr AdsAddr;
 } S_EL5151_Input_Prozessabbild, *PS_EL5151_Input_Prozessabbild;
 #pragma pack(pop)
-#endif // !defined(_TC_TYPE_37F2006B_CA63_41BD_8992_0266C6115244_INCLUDED_)
+#endif // !defined(_TC_TYPE_4703663A_9D2B_4D28_B3ED_98C2D00A89CC_INCLUDED_)
 
 #if !defined(_TC_TYPE_D35D150F_D896_4154_9AA3_F3F4BFC37792_INCLUDED_)
 #define _TC_TYPE_D35D150F_D896_4154_9AA3_F3F4BFC37792_INCLUDED_

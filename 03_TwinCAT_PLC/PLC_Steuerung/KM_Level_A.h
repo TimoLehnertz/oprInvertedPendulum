@@ -18,10 +18,86 @@
 #include "..\..\01_Common\CD_Level_A.h"               // CommonDeclares des Moduls Level_A
 #include "KM_Level_B.h"                               // Unterklasse Level_B
 
+class PIDController {
+public:
+
+    PIDController() {
+        p = 0;
+        i = 0;
+        d = 0;
+        dt = 0;
+        minI = 0;
+        maxI = 0;
+        isAngleController = false;
+        this->setpoint = 0;
+        this->integrator = 0;
+        this->lastMeasurement = 0;
+        this->firstMeasurementTaken = false;
+    }
+
+    PIDController(double p, double i, double d, double dt, double minI, double maxI) : p(p), i(i), d(d), dt(dt), minI(minI), maxI(maxI) {
+        reset();
+        this->isAngleController = false;
+    }
+
+    // returns stellwert
+    double update(double measurement) {
+        if (!firstMeasurementTaken) {
+            this->lastMeasurement = measurement;
+            firstMeasurementTaken = true;
+        }
+        double error = measurement - this->setpoint;
+
+        double pTerm = -error * this->p;
+
+        this->integrator += error * this->dt * this->i;
+        if (this->integrator > this->maxI) this->integrator = this->maxI;
+        if (this->integrator < this->minI) this->integrator = this->minI;
+
+        double dTerm = ((measurement - this->lastMeasurement) / this->dt) * this->d;
+
+        this->lastMeasurement = measurement;
+        return pTerm + this->integrator + dTerm;
+    }
+
+    void reset() {
+        this->setpoint = 0;
+        this->integrator = 0;
+        this->lastMeasurement = 0;
+        this->firstMeasurementTaken = false;
+    }
+
+    void setSetpoint(double setpoint) {
+        this->setpoint = setpoint;
+    }
+
+    //static double angleFromTo(double from, double to) {
+    //    _sin(1);
+    //    return _atan2(_sin(to - from), _cos(to - from));
+    //}
+
+private:
+    double p;
+    double i;
+    double d;
+    double dt;
+    double minI;
+    double maxI;
+
+    double setpoint;
+
+    double integrator;
+
+    double lastMeasurement;
+
+    bool isAngleController;
+
+    bool firstMeasurementTaken;
+
+};
+
 namespace Zunker
   {
-
-    class PIDController;
 
   class C_KM_Level_A
     {
@@ -110,6 +186,8 @@ namespace Zunker
     
     bool enablePID;
 
+    long linearCounterValue;
+
     PIDController angleController;
 
     /**************************************************** Öffentliche Anwender-Attribute ********************************************************/
@@ -133,68 +211,4 @@ namespace Zunker
     void       Cycle_Update                           (void);                                      // muss zwingend in der Cycle_Update-Methode des Mutter-Objekt aufgerufen werden !!!
     void       AdsReadWriteIndication                 (Int32 ModulAdress, Int32 KM_Command);       // muss zwingend in der AdsReadWriteIndication-Methode des Mutter-Objekt aufgerufen werden !!!
     }; //  class C_KM_Level_A
-
-    class PIDController {
-    public:
-        PIDController(double p, double i, double d, double dt, double minI, double maxI) : p(p), i(i), d(d), dt(dt), minI(minI), maxI(maxI) {
-            reset();
-            this->isAngleController = false;
-        }
-
-        // returns stellwert
-        double update(double measurement) {
-            if (!firstMeasurementTaken) {
-                this->lastMeasurement = measurement;
-                firstMeasurementTaken = true;
-            }
-            double error = measurement - this->setpoint;
-
-            double pTerm = -error * this->p;
-
-            this->integrator += error * this->dt * this->i;
-            if (this->integrator > this->maxI) this->integrator = this->maxI;
-            if (this->integrator < this->minI) this->integrator = this->minI;
-
-            double dTerm = ((measurement - this->lastMeasurement) / this->dt) * this->d;
-            
-            this->lastMeasurement = measurement;
-            return pTerm + this->integrator + dTerm;
-        }
-
-        void reset() {
-            this->setpoint = 0;
-            this->integrator = 0;
-            this->lastMeasurement = 0;
-            this->firstMeasurementTaken = false;
-        }
-
-        void setSetpoint(double setpoint) {
-            this->setpoint = setpoint;
-        }
-
-        //static double angleFromTo(double from, double to) {
-        //    _sin(1);
-        //    return _atan2(_sin(to - from), _cos(to - from));
-        //}
-
-    private:
-        double p;
-        double i;
-        double d;
-        double dt;
-        double minI;
-        double maxI;
-        
-        double setpoint;
-        
-        double integrator;
-
-        double lastMeasurement;
-
-        bool isAngleController;
-
-        bool firstMeasurementTaken;
-
-    };
-
 } // namespace Zunker

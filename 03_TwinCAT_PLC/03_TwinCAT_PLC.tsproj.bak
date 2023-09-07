@@ -336,7 +336,7 @@
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{37F2006B-CA63-41BD-8992-0266C6115244}">S_EL5151_Input_Prozessabbild</Name>
+			<Name GUID="{4703663A-9D2B-4D28-B3ED-98C2D00A89CC}">S_EL5151_Input_Prozessabbild</Name>
 			<BitSize>272</BitSize>
 			<SubItem>
 				<Name>ENC_Status</Name>
@@ -346,14 +346,14 @@
 			</SubItem>
 			<SubItem>
 				<Name>ENC_CounterValue</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
-				<BitSize>32</BitSize>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
 				<BitOffs>16</BitOffs>
 			</SubItem>
 			<SubItem>
 				<Name>ENC_LatchValue</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
-				<BitSize>32</BitSize>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
 				<BitOffs>48</BitOffs>
 			</SubItem>
 			<SubItem>
@@ -397,6 +397,7 @@
 				<Hide GUID="{C6DF0D07-85DF-4AF1-AA5F-E371779BD734}"/>
 				<Hide GUID="{BC76FAD1-525D-45A2-825C-366F14608551}"/>
 				<Hide GUID="{FC791E29-8380-4EC7-8A74-9D24CEEF24CE}"/>
+				<Hide GUID="{37F2006B-CA63-41BD-8992-0266C6115244}"/>
 			</Hides>
 		</DataType>
 		<DataType>
@@ -899,13 +900,13 @@
 								<Symbol>
 									<Name>EL5151_Drehgeber_Klemme</Name>
 									<BitSize>272</BitSize>
-									<BaseType GUID="{37F2006B-CA63-41BD-8992-0266C6115244}">S_EL5151_Input_Prozessabbild</BaseType>
+									<BaseType GUID="{4703663A-9D2B-4D28-B3ED-98C2D00A89CC}">S_EL5151_Input_Prozessabbild</BaseType>
 									<BitOffs>720</BitOffs>
 								</Symbol>
 								<Symbol>
 									<Name>EL5151_Lineargeber_Klemme</Name>
 									<BitSize>272</BitSize>
-									<BaseType GUID="{37F2006B-CA63-41BD-8992-0266C6115244}">S_EL5151_Input_Prozessabbild</BaseType>
+									<BaseType GUID="{4703663A-9D2B-4D28-B3ED-98C2D00A89CC}">S_EL5151_Input_Prozessabbild</BaseType>
 									<BitOffs>992</BitOffs>
 								</Symbol>
 								<Symbol>
@@ -1126,6 +1127,79 @@
 						<OwnerA Name="Outputs" Prefix="TIXC^PLC_Steuerung^PLC_Steuerung_Obj1 (KM_App_Main)" Type="2">
 							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 11 (EL5151)">
 								<Link VarA="EL5151_Pendel_drehgeber^ENC_Control" GrpA="Outputs" TypeA="UINT" InOutA="1" ParentTypeA="S_EL5151_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Outputs^Control"/>
+							</OwnerB>
+						</OwnerA>
+					</UnrestoredVarLinks>
+					<UnrestoredVarLinks ImportTime="2023-09-07T11:11:23">
+						<OwnerA Name="Eingänge" Prefix="TIXC^PLC_Steuerung^PLC_Steuerung_Obj1 (KM_App_Main)" Type="1">
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 10 (EL7201)">
+								<Link VarA="EL7201_ServoMotor_Klemme^AdsAddr" GrpA="Eingänge" TypeA="AMSADDR" InOutA="0" ParentTypeA="S_EL7201_Input_Prozessabbild" GuidA="{BD4386D3-A677-4682-B545-D6CAF102F383}" VarB="InfoData^AdsAddr"/>
+								<Link VarA="EL7201_ServoMotor_Klemme^Chn0" GrpA="Eingänge" TypeA="USINT" InOutA="0" ParentTypeA="S_EL7201_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000002}" VarB="InfoData^Chn0"/>
+								<Link VarA="EL7201_ServoMotor_Klemme^DRV_Statusword" GrpA="Eingänge" TypeA="UINT" InOutA="0" ParentTypeA="S_EL7201_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="DRV Statusword^Statusword"/>
+								<Link VarA="EL7201_ServoMotor_Klemme^DcInputShift" GrpA="Eingänge" TypeA="DINT" InOutA="0" ParentTypeA="S_EL7201_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000009}" VarB="InfoData^DcInputShift"/>
+								<Link VarA="EL7201_ServoMotor_Klemme^DcOutputShift" GrpA="Eingänge" TypeA="DINT" InOutA="0" ParentTypeA="S_EL7201_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000009}" VarB="InfoData^DcOutputShift"/>
+								<Link VarA="EL7201_ServoMotor_Klemme^FB_Position" GrpA="Eingänge" TypeA="DINT" InOutA="0" ParentTypeA="S_EL7201_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000009}" VarB="FB Position^Position"/>
+								<Link VarA="EL7201_ServoMotor_Klemme^InputToggle" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL7201_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="WcState^InputToggle" Size="1"/>
+								<Link VarA="EL7201_ServoMotor_Klemme^State" GrpA="Eingänge" TypeA="UINT" InOutA="0" ParentTypeA="S_EL7201_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="InfoData^State"/>
+								<Link VarA="EL7201_ServoMotor_Klemme^WcState" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL7201_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="WcState^WcState" Size="1"/>
+							</OwnerB>
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 11 (EL5151)">
+								<Link VarA="EL5151_Pendel_drehgeber^CounterValue" GrpA="Eingänge" TypeA="UINT" InOutA="0" ParentTypeA="S_EL5151_Input_Pendel" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Inputs^Counter value"/>
+							</OwnerB>
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 2 (EL1014)">
+								<Link VarA="EL1014_DigitalInput_Klemme0^Channel0_Input" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL1014_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Input" Size="1"/>
+								<Link VarA="EL1014_DigitalInput_Klemme0^Channel1_Input" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL1014_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Input" Size="1"/>
+								<Link VarA="EL1014_DigitalInput_Klemme0^Channel2_Input" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL1014_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 3^Input" Size="1"/>
+								<Link VarA="EL1014_DigitalInput_Klemme0^Channel3_Input" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL1014_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 4^Input" Size="1"/>
+							</OwnerB>
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 3 (EL1014)">
+								<Link VarA="EL1014_DigitalInput_Klemme1^Channel0_Input" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL1014_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Input" Size="1"/>
+								<Link VarA="EL1014_DigitalInput_Klemme1^Channel1_Input" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL1014_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Input" Size="1"/>
+								<Link VarA="EL1014_DigitalInput_Klemme1^Channel2_Input" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL1014_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 3^Input" Size="1"/>
+								<Link VarA="EL1014_DigitalInput_Klemme1^Channel3_Input" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL1014_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 4^Input" Size="1"/>
+							</OwnerB>
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 8 (EL5151)">
+								<Link VarA="EL5151_Drehgeber_Klemme^AdsAddr" GrpA="Eingänge" TypeA="AMSADDR" InOutA="0" ParentTypeA="S_EL5151_Input_Prozessabbild" GuidA="{BD4386D3-A677-4682-B545-D6CAF102F383}" VarB="InfoData^AdsAddr"/>
+								<Link VarA="EL5151_Drehgeber_Klemme^ENC_Status" GrpA="Eingänge" TypeA="UINT" InOutA="0" ParentTypeA="S_EL5151_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Inputs^Status"/>
+								<Link VarA="EL5151_Drehgeber_Klemme^InputToggle" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL5151_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="WcState^InputToggle" Size="1"/>
+								<Link VarA="EL5151_Drehgeber_Klemme^State" GrpA="Eingänge" TypeA="UINT" InOutA="0" ParentTypeA="S_EL5151_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="InfoData^State"/>
+								<Link VarA="EL5151_Drehgeber_Klemme^WcState" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL5151_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="WcState^WcState" Size="1"/>
+							</OwnerB>
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 9 (EL5151)">
+								<Link VarA="EL5151_Lineargeber_Klemme^AdsAddr" GrpA="Eingänge" TypeA="AMSADDR" InOutA="0" ParentTypeA="S_EL5151_Input_Prozessabbild" GuidA="{BD4386D3-A677-4682-B545-D6CAF102F383}" VarB="InfoData^AdsAddr"/>
+								<Link VarA="EL5151_Lineargeber_Klemme^ENC_CounterValue" GrpA="Eingänge" TypeA="DINT" InOutA="0" ParentTypeA="S_EL5151_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000009}" VarB="ENC Inputs_1^Period value"/>
+								<Link VarA="EL5151_Lineargeber_Klemme^ENC_Status" GrpA="Eingänge" TypeA="UINT" InOutA="0" ParentTypeA="S_EL5151_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Inputs^Status"/>
+								<Link VarA="EL5151_Lineargeber_Klemme^InputToggle" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL5151_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="WcState^InputToggle" Size="1"/>
+								<Link VarA="EL5151_Lineargeber_Klemme^State" GrpA="Eingänge" TypeA="UINT" InOutA="0" ParentTypeA="S_EL5151_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="InfoData^State"/>
+								<Link VarA="EL5151_Lineargeber_Klemme^WcState" GrpA="Eingänge" TypeA="BOOL" InOutA="0" ParentTypeA="S_EL5151_Input_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="WcState^WcState" Size="1"/>
+							</OwnerB>
+						</OwnerA>
+						<OwnerA Name="Ausgänge" Prefix="TIXC^PLC_Steuerung^PLC_Steuerung_Obj1 (KM_App_Main)" Type="2">
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 10 (EL7201)">
+								<Link VarA="EL7201_ServoMotor_Klemme^DRV_Controlword" GrpA="Ausgänge" TypeA="UINT" InOutA="1" ParentTypeA="S_EL7201_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="DRV Controlword^Controlword"/>
+								<Link VarA="EL7201_ServoMotor_Klemme^DRV_TargetVelocity" GrpA="Ausgänge" TypeA="DINT" InOutA="1" ParentTypeA="S_EL7201_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000009}" VarB="DRV Target velocity^Target velocity"/>
+							</OwnerB>
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 4 (EL2004)">
+								<Link VarA="EL2004_DigitalOutput_Klemme0^Channel0_Output" GrpA="Ausgänge" TypeA="BOOL" InOutA="1" ParentTypeA="S_EL2004_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Output" Size="1"/>
+								<Link VarA="EL2004_DigitalOutput_Klemme0^Channel1_Output" GrpA="Ausgänge" TypeA="BOOL" InOutA="1" ParentTypeA="S_EL2004_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Output" Size="1"/>
+								<Link VarA="EL2004_DigitalOutput_Klemme0^Channel2_Output" GrpA="Ausgänge" TypeA="BOOL" InOutA="1" ParentTypeA="S_EL2004_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 3^Output" Size="1"/>
+								<Link VarA="EL2004_DigitalOutput_Klemme0^Channel3_Output" GrpA="Ausgänge" TypeA="BOOL" InOutA="1" ParentTypeA="S_EL2004_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 4^Output" Size="1"/>
+							</OwnerB>
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 5 (EL2004)">
+								<Link VarA="EL2004_DigitalOutput_Klemme1^Channel0_Output" GrpA="Ausgänge" TypeA="BOOL" InOutA="1" ParentTypeA="S_EL2004_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Output" Size="1"/>
+								<Link VarA="EL2004_DigitalOutput_Klemme1^Channel1_Output" GrpA="Ausgänge" TypeA="BOOL" InOutA="1" ParentTypeA="S_EL2004_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Output" Size="1"/>
+								<Link VarA="EL2004_DigitalOutput_Klemme1^Channel2_Output" GrpA="Ausgänge" TypeA="BOOL" InOutA="1" ParentTypeA="S_EL2004_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 3^Output" Size="1"/>
+								<Link VarA="EL2004_DigitalOutput_Klemme1^Channel3_Output" GrpA="Ausgänge" TypeA="BOOL" InOutA="1" ParentTypeA="S_EL2004_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 4^Output" Size="1"/>
+							</OwnerB>
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 7 (EL4132)">
+								<Link VarA="EL4132_AnalogOutput_Klemme^Output_0" GrpA="Ausgänge" TypeA="INT" InOutA="1" ParentTypeA="S_EL4132_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="Channel 1^Output"/>
+								<Link VarA="EL4132_AnalogOutput_Klemme^Output_1" GrpA="Ausgänge" TypeA="INT" InOutA="1" ParentTypeA="S_EL4132_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="Channel 2^Output"/>
+							</OwnerB>
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 8 (EL5151)">
+								<Link VarA="EL5151_Drehgeber_Klemme^ENC_Control" GrpA="Ausgänge" TypeA="UINT" InOutA="1" ParentTypeA="S_EL5151_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Outputs^Control"/>
+							</OwnerB>
+							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100)^Term 9 (EL5151)">
+								<Link VarA="EL5151_Lineargeber_Klemme^ENC_Control" GrpA="Ausgänge" TypeA="UINT" InOutA="1" ParentTypeA="S_EL5151_Output_Prozessabbild" GuidA="{18071995-0000-0000-0000-000000000005}" VarB="ENC Outputs^Control"/>
 							</OwnerB>
 						</OwnerA>
 					</UnrestoredVarLinks>
@@ -2142,49 +2216,10 @@ Bit 8 - 15 : reserved]]></Comment>
 		<MappingInfo Identifier="{00000000-0020-0304-1000-010121000403}" Id="#x02030020"/>
 		<OwnerA Name="TIID^Device 1 (EtherCAT)">
 			<OwnerB Name="TIXC^PLC_Steuerung^PLC_Steuerung_Obj1 (KM_App_Main)">
-				<Link VarA="Term 1 (EK1100)^Term 10 (EL7201)^DRV Controlword^Controlword" VarB="Outputs^EL7201_ServoMotor_Klemme^DRV_Controlword"/>
-				<Link VarA="Term 1 (EK1100)^Term 10 (EL7201)^DRV Statusword^Statusword" VarB="Inputs^EL7201_ServoMotor_Klemme^DRV_Statusword"/>
-				<Link VarA="Term 1 (EK1100)^Term 10 (EL7201)^DRV Target velocity^Target velocity" VarB="Outputs^EL7201_ServoMotor_Klemme^DRV_TargetVelocity"/>
-				<Link VarA="Term 1 (EK1100)^Term 10 (EL7201)^FB Position^Position" VarB="Inputs^EL7201_ServoMotor_Klemme^FB_Position"/>
-				<Link VarA="Term 1 (EK1100)^Term 10 (EL7201)^InfoData^AdsAddr" VarB="Inputs^EL7201_ServoMotor_Klemme^AdsAddr"/>
-				<Link VarA="Term 1 (EK1100)^Term 10 (EL7201)^InfoData^Chn0" VarB="Inputs^EL7201_ServoMotor_Klemme^Chn0"/>
-				<Link VarA="Term 1 (EK1100)^Term 10 (EL7201)^InfoData^DcInputShift" VarB="Inputs^EL7201_ServoMotor_Klemme^DcInputShift"/>
-				<Link VarA="Term 1 (EK1100)^Term 10 (EL7201)^InfoData^DcOutputShift" VarB="Inputs^EL7201_ServoMotor_Klemme^DcOutputShift"/>
-				<Link VarA="Term 1 (EK1100)^Term 10 (EL7201)^InfoData^State" VarB="Inputs^EL7201_ServoMotor_Klemme^State"/>
-				<Link VarA="Term 1 (EK1100)^Term 10 (EL7201)^WcState^InputToggle" VarB="Inputs^EL7201_ServoMotor_Klemme^InputToggle"/>
-				<Link VarA="Term 1 (EK1100)^Term 10 (EL7201)^WcState^WcState" VarB="Inputs^EL7201_ServoMotor_Klemme^WcState"/>
-				<Link VarA="Term 1 (EK1100)^Term 11 (EL5151)^ENC Inputs^Counter value" VarB="Inputs^EL5151_Pendel_drehgeber^CounterValue"/>
-				<Link VarA="Term 1 (EK1100)^Term 2 (EL1014)^Channel 1^Input" VarB="Inputs^EL1014_DigitalInput_Klemme0^Channel0_Input"/>
-				<Link VarA="Term 1 (EK1100)^Term 2 (EL1014)^Channel 2^Input" VarB="Inputs^EL1014_DigitalInput_Klemme0^Channel1_Input"/>
-				<Link VarA="Term 1 (EK1100)^Term 2 (EL1014)^Channel 3^Input" VarB="Inputs^EL1014_DigitalInput_Klemme0^Channel2_Input"/>
-				<Link VarA="Term 1 (EK1100)^Term 2 (EL1014)^Channel 4^Input" VarB="Inputs^EL1014_DigitalInput_Klemme0^Channel3_Input"/>
-				<Link VarA="Term 1 (EK1100)^Term 3 (EL1014)^Channel 1^Input" VarB="Inputs^EL1014_DigitalInput_Klemme1^Channel0_Input"/>
-				<Link VarA="Term 1 (EK1100)^Term 3 (EL1014)^Channel 2^Input" VarB="Inputs^EL1014_DigitalInput_Klemme1^Channel1_Input"/>
-				<Link VarA="Term 1 (EK1100)^Term 3 (EL1014)^Channel 3^Input" VarB="Inputs^EL1014_DigitalInput_Klemme1^Channel2_Input"/>
-				<Link VarA="Term 1 (EK1100)^Term 3 (EL1014)^Channel 4^Input" VarB="Inputs^EL1014_DigitalInput_Klemme1^Channel3_Input"/>
-				<Link VarA="Term 1 (EK1100)^Term 4 (EL2004)^Channel 1^Output" VarB="Outputs^EL2004_DigitalOutput_Klemme0^Channel0_Output"/>
-				<Link VarA="Term 1 (EK1100)^Term 4 (EL2004)^Channel 2^Output" VarB="Outputs^EL2004_DigitalOutput_Klemme0^Channel1_Output"/>
-				<Link VarA="Term 1 (EK1100)^Term 4 (EL2004)^Channel 3^Output" VarB="Outputs^EL2004_DigitalOutput_Klemme0^Channel2_Output"/>
-				<Link VarA="Term 1 (EK1100)^Term 4 (EL2004)^Channel 4^Output" VarB="Outputs^EL2004_DigitalOutput_Klemme0^Channel3_Output"/>
-				<Link VarA="Term 1 (EK1100)^Term 5 (EL2004)^Channel 1^Output" VarB="Outputs^EL2004_DigitalOutput_Klemme1^Channel0_Output"/>
-				<Link VarA="Term 1 (EK1100)^Term 5 (EL2004)^Channel 2^Output" VarB="Outputs^EL2004_DigitalOutput_Klemme1^Channel1_Output"/>
-				<Link VarA="Term 1 (EK1100)^Term 5 (EL2004)^Channel 3^Output" VarB="Outputs^EL2004_DigitalOutput_Klemme1^Channel2_Output"/>
-				<Link VarA="Term 1 (EK1100)^Term 5 (EL2004)^Channel 4^Output" VarB="Outputs^EL2004_DigitalOutput_Klemme1^Channel3_Output"/>
-				<Link VarA="Term 1 (EK1100)^Term 7 (EL4132)^Channel 1^Output" VarB="Outputs^EL4132_AnalogOutput_Klemme^Output_0"/>
-				<Link VarA="Term 1 (EK1100)^Term 7 (EL4132)^Channel 2^Output" VarB="Outputs^EL4132_AnalogOutput_Klemme^Output_1"/>
-				<Link VarA="Term 1 (EK1100)^Term 8 (EL5151)^ENC Inputs^Status" VarB="Inputs^EL5151_Drehgeber_Klemme^ENC_Status"/>
-				<Link VarA="Term 1 (EK1100)^Term 8 (EL5151)^ENC Outputs^Control" VarB="Outputs^EL5151_Drehgeber_Klemme^ENC_Control"/>
-				<Link VarA="Term 1 (EK1100)^Term 8 (EL5151)^InfoData^AdsAddr" VarB="Inputs^EL5151_Drehgeber_Klemme^AdsAddr"/>
-				<Link VarA="Term 1 (EK1100)^Term 8 (EL5151)^InfoData^State" VarB="Inputs^EL5151_Drehgeber_Klemme^State"/>
-				<Link VarA="Term 1 (EK1100)^Term 8 (EL5151)^WcState^InputToggle" VarB="Inputs^EL5151_Drehgeber_Klemme^InputToggle"/>
-				<Link VarA="Term 1 (EK1100)^Term 8 (EL5151)^WcState^WcState" VarB="Inputs^EL5151_Drehgeber_Klemme^WcState"/>
+				<Link VarA="Term 1 (EK1100)^Term 9 (EL5151)^ENC Inputs^Counter value" VarB="Inputs^EL5151_Lineargeber_Klemme^ENC_CounterValue"/>
+				<Link VarA="Term 1 (EK1100)^Term 9 (EL5151)^ENC Inputs^Latch value" VarB="Inputs^EL5151_Lineargeber_Klemme^ENC_LatchValue"/>
 				<Link VarA="Term 1 (EK1100)^Term 9 (EL5151)^ENC Inputs^Status" VarB="Inputs^EL5151_Lineargeber_Klemme^ENC_Status"/>
 				<Link VarA="Term 1 (EK1100)^Term 9 (EL5151)^ENC Inputs_1^Period value" VarB="Inputs^EL5151_Lineargeber_Klemme^ENC2_PeriodValue"/>
-				<Link VarA="Term 1 (EK1100)^Term 9 (EL5151)^ENC Outputs^Control" VarB="Outputs^EL5151_Lineargeber_Klemme^ENC_Control"/>
-				<Link VarA="Term 1 (EK1100)^Term 9 (EL5151)^InfoData^AdsAddr" VarB="Inputs^EL5151_Lineargeber_Klemme^AdsAddr"/>
-				<Link VarA="Term 1 (EK1100)^Term 9 (EL5151)^InfoData^State" VarB="Inputs^EL5151_Lineargeber_Klemme^State"/>
-				<Link VarA="Term 1 (EK1100)^Term 9 (EL5151)^WcState^InputToggle" VarB="Inputs^EL5151_Lineargeber_Klemme^InputToggle"/>
-				<Link VarA="Term 1 (EK1100)^Term 9 (EL5151)^WcState^WcState" VarB="Inputs^EL5151_Lineargeber_Klemme^WcState"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>

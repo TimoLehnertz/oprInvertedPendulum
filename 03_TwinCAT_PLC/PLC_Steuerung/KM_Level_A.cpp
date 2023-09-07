@@ -308,7 +308,11 @@ Boolean        C_KM_Level_A::SM_Thread_2                                     (vo
     btn2State = btn2StateNew;
     btn3State = btn3StateNew;
 
+
     this->ServoMotor->SetServoMotorStellGeschwindigkeit(motorSpeed);
+    this->ServoMotor->GetResolverIncrements();
+
+    linearCounterValue = this->KM_GlobalObjects->m_Inputs->EL5151_Lineargeber_Klemme.ENC2_PeriodValue;
 
     if (this->ServoMotor->IsServoMotorEnabled()) {
         this->Led_0->SetDigitalOut();
